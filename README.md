@@ -1,1 +1,1 @@
-Scania R Maint class
+Scania R410/450 Maint class
