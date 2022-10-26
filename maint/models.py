@@ -1,3 +1,4 @@
+from enum import unique
 from django.db import models
 
 
@@ -5,7 +6,10 @@ class Vehicle(models.Model):
     """
     VIN - according to ISO 3779Vehicle
     """
-    vin = models.CharField (max_length=17)
+    vin = models.CharField (max_length=17, unique=True)
+    assembly_date = models.DateField(auto_now=False, auto_now_add=False)
+    entry_into_service = models.DateField(auto_now=False, auto_now_add=False)
+    licence_plate = models.CharField(max_length=8, unique=True)
 
     def __str__(self):
         return self.vin
@@ -53,7 +57,7 @@ class Vehicle(models.Model):
     def model_year(self):
         """
         Sequential Number
-        
+
         Managed by manufacturer        
         """
         return self.vin[11:]
