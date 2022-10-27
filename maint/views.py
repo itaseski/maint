@@ -1,6 +1,4 @@
-from django.http import HttpResponse
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Vehicle, LicencePlate
 
@@ -13,9 +11,5 @@ def index(request):
     return render(request, 'maint/index.html', context)
 
 def detail(request, vehicle_id):
-    try:
-        vehicle = Vehicle.objects.get(pk=vehicle_id)
-    except Vehicle.DoesNotExist:
-        raise Http404("Vehicle does not exist")
+    vehicle = get_object_or_404(Vehicle, pk=vehicle_id)
     return render(request, 'maint/detail.html', {'vehicle': vehicle})
-
