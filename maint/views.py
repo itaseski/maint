@@ -1,7 +1,8 @@
 from django.http import HttpResponse
+from django.http import Http404
 from django.shortcuts import render
 
-from .models import Vehicle
+from .models import Vehicle, LicencePlate
 
 
 def index(request):
@@ -12,5 +13,9 @@ def index(request):
     return render(request, 'maint/index.html', context)
 
 def detail(request, vehicle_id):
-    return HttpResponse("You're looking at vehicle %s." % vehicle_id)
+    try:
+        vehicle = Vehicle.objects.get(pk=vehicle_id)
+    except Vehicle.DoesNotExist:
+        raise Http404("Vehicle does not exist")
+    return render(request, 'maint/detail.html', {'vehicle': vehicle})
 
