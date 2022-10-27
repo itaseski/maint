@@ -1,0 +1,11 @@
+<h5>Link Logistik Fleet ordered by assembly date (newest first)</h5>
+{% if vehicle_list %}
+    <ul>
+    {% for vehicle in vehicle_list %}
+        <li><a href="/maint/{{ vehicle.id }}/">{{ vehicle.vin }}</a> {{ vehicle.assembly_date | date:" d.m.Y" }} {{ vehicle.entry_into_service | date:" d.m.Y" }}</li>
+    {% endfor %}
+    </ul>
+    <br>
+{% else %}
+    <p>No vehicle in database.</p>
+{% endif %}
