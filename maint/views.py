@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Vehicle, LicencePlate
+from .models import Vehicle
 
 
 def index(request):
@@ -13,3 +13,6 @@ def index(request):
 def detail(request, vehicle_id):
     vehicle = get_object_or_404(Vehicle, pk=vehicle_id)
     return render(request, 'maint/detail.html', {'vehicle': vehicle})
+
+def credit(request):
+    return render(request, 'maint/credit.html', {})

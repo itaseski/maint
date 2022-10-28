@@ -38,10 +38,10 @@
         </svg>
         <span>Dashboard</span>
     </a>
-    <div class="collapse show" id="customization">
+    <div class="collapse" id="customization">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a href="{% url 'maint:index' %}" class="nav-link active">Fleet</a>
+                <a href="{% url 'maint:index' %}" class="nav-link">Fleet</a>
             </li>
             <li class="nav-item">
                 <a href="../docs/sass.html" class="nav-link">Calendar</a>
@@ -147,8 +147,6 @@
         </ul>
     </div>
 </li>
-
-
 
 
 <li class="nav-item w-100">
@@ -551,7 +549,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{% url 'maint:credit' %}" class="nav-link">
+    <a href="{% url 'maint:credit' %}" class="nav-link active">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="nav-link-icon" height="18" width="18">
             <defs>
                 <style>
@@ -583,44 +581,288 @@
 
 <!-- Title -->
 <h1 class="h2">
-    Link Logistik Scania R Fleet, ordered by assembly date (newest first)
+    Credits
 </h1>
 
 <div class="row">
     <div class="col">
-
         <!-- Card -->
         <div class="card border-0 p-md-6">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-{% if vehicle_list %}
-<div class="table-responsive">
-    <table class="table">    
-        <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Assembly date</th>
-                <th>Entry into service</th>
-            </tr>
-        </thead>
-        {% for vehicle in vehicle_list %}      
+                        <p>Thank you to the authors and developers of these fantastic products!</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-nowrap mb-0">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>URL</th>
+                                    </tr>
+                                </thead>
 
-        <tbody>
-            <tr>
-                <td><a href="{% url 'maint:detail' vehicle.id %}">{{ vehicle.vin }}</a></td>
-                <td>{{vehicle.assembly_date | date:"d.m.Y"}}</td>
-                <td>{{ vehicle.entry_into_service | date:" d.m.Y" }}</td>
-            </tr>
-        </tbody>    
-    {% endfor %}    
-    </table>
-</div>
-{% else %}
-    <p>No vehicle in database.</p>
-{% endif %}                        
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            VS Code
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://code.visualstudio.com/" target="_blank">
+                                                https://code.visualstudio.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Python
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://www.python.org/" target="_blank">
+                                                https://www.python.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Django
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://www.djangoproject.com/" target="_blank">
+                                                https://www.djangoproject.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Bootstrap
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://getbootstrap.com/" target="_blank">
+                                                https://getbootstrap.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Chart.js
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://www.chartjs.org/" target="_blank">
+                                                https://www.chartjs.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            clipboard.js
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://clipboardjs.com/" target="_blank">
+                                                https://clipboardjs.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Dragula
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://bevacqua.github.io/dragula/" target="_blank">
+                                                https://bevacqua.github.io/dragula/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Dropzone
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://www.dropzone.dev/js/" target="_blank">
+                                                https://www.dropzone.dev/js/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Flag icons
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://flagicons.lipis.dev/" target="_blank">
+                                                https://flagicons.lipis.dev/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Flatpickr
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://flatpickr.js.org/" target="_blank">
+                                                https://flatpickr.js.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            FullCalendar
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://fullcalendar.io/" target="_blank">
+                                                https://fullcalendar.io/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Google Fonts
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://fonts.google.com/" target="_blank">
+                                                https://fonts.google.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Gumshoe
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://github.com/cferdinandi/gumshoe" target="_blank">
+                                                https://github.com/cferdinandi/gumshoe
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            highlight.js
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://highlightjs.org/" target="_blank">
+                                                https://highlightjs.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Inputmask
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://github.com/RobinHerbots/Inputmask" target="_blank">
+                                                https://github.com/RobinHerbots/Inputmask
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Jsvectormap
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://jvm-docs.vercel.app/" target="_blank">
+                                                https://jvm-docs.vercel.app/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            List.js
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://listjs.com/" target="_blank">
+                                                https://listjs.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Node.js
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://nodejs.org/" target="_blank">
+                                                https://nodejs.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            PicMo
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://picmojs.com/" target="_blank">
+                                                https://picmojs.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Quill
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://quilljs.com/" target="_blank">
+                                                https://quilljs.com/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Tom Select
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://tom-select.js.org/" target="_blank">
+                                                https://tom-select.js.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            Webpack
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://webpack.js.org/" target="_blank">
+                                                https://webpack.js.org/
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">
+                                            zxcvbn
+                                        </td>
+                                        <td>
+                                            <a class="d-flex align-items-center" href="https://github.com/dropbox/zxcvbn" target="_blank">
+                                                https://github.com/dropbox/zxcvbn
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14" class="ms-2"><defs><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5px;}</style></defs><title>share-external-link-1</title><line class="a" x1="9.25" y1="14.523" x2="23.25" y2="0.75"/><polyline class="a" points="23.25 8.621 23.25 0.75 15.25 0.75"/><path class="a" d="M12.125,5.75H1.625a.875.875,0,0,0-.875.875v15.75a.875.875,0,0,0,.875.875h15.75a.875.875,0,0,0,.875-.875v-10.5"/></svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>  
                     </div>
-                </div> <!-- / .row -->
+                </div> <!-- / .row -->  
             </div>
         </div>
     </div>
