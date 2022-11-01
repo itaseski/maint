@@ -133,6 +133,28 @@ class EngineControl(models.Model):
     def __str__(self):
         return self.vehicle.vin
 
+class ComplementaryEquipment(models.Model):
+    '''Engine'''
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
+    fifth_wheel = models.CharField(max_length=24, default="JOST JSK37C-Z 150")
+    fifth_wheel_position = models.CharField(max_length=12, default="660")
+    fifth_wheel_category = models.CharField(max_length=24, default="Fixed, plate-mounted")
+    fifth_wheel_mounting_plate = models.CharField(max_length=24, default="40mm Dmax:152kN")
+    catwalk = models.CharField(max_length=24, default="Единечна")
+    bracket_front_mounted_equipment = models.CharField(max_length=24, default="Нема")
+    acl_aut_chassis_lubrication = models.CharField('ACL, automatic chassis lubrication', max_length=24, default="Нема")
+    dimension_ja_bep_lo2o = models.CharField('Dimesion JA/BEP L020', max_length=24, default="775")
+    trailer_electric_connector = models.CharField(max_length=24, default="1x15 pole")
+    trailer_connector_type = models.CharField(max_length=24, default="High")
+    side_skirts = models.CharField(max_length=36, default="Without")
+    resque_equip_except_fire_ex = models.CharField(max_length=24, default="With")
+    hose_tyre_inflation = models.CharField(max_length=24, default="20")
+    spare_wheel_carrier = models.CharField(max_length=24, default="Without")
+    fire_extinguisher = models.CharField(max_length=24, default="1 x 2kg")
+
+    def __str__(self):
+        return self.vehicle.vin       
+
 
 
 

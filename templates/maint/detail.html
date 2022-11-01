@@ -1,4 +1,4 @@
-{% extends 'maint/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 
@@ -577,6 +577,101 @@
         <span>Credits</span>
     </a>
 </li>
+
+<!-- consumables-->
+<li class="nav-item w-100">
+    <hr>
+</li>
+<li class="nav-item">
+    <span class="h6 text-secondary ps-4 ps-lg-6 mb-3 d-block text-uppercase">Consumables</span>
+</li>
+
+<!--Fasteners-->
+<li class="nav-item dropdown">
+    <a class="nav-link" href="#fasteners" data-bs-toggle="collapse" role="button" aria-expanded="false"
+        aria-controls="customization">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height=16" fill="currentColor" class="bi bi-nut nav-link-icon" viewBox="0 0 16 16">
+            <path d="m11.42 2 3.428 6-3.428 6H4.58L1.152 8 4.58 2h6.84zM4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1H4.58z"/>
+            <path d="M6.848 5.933a2.5 2.5 0 1 0 2.5 4.33 2.5 2.5 0 0 0-2.5-4.33zm-1.78 3.915a3.5 3.5 0 1 1 6.061-3.5 3.5 3.5 0 0 1-6.062 3.5z"/>
+          </svg>
+        <span>Fastener</span>
+    </a>
+    <div class="collapse" id="fasteners">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="{% url 'fasteners:screws' %}" class="nav-link">Screws</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/sass.html" class="nav-link">Nuts</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/javascript.html" class="nav-link">Clamps</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/handlebars.html" class="nav-link">Rod</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Pins</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Niples</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Rivet Nuts</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Rivets</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Rivets</a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+
+<!--Electrics-->
+<li class="nav-item dropdown">
+    <a class="nav-link" href="#electrics" data-bs-toggle="collapse" role="button" aria-expanded="false"
+        aria-controls="customization">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-usb-plug nav-link-icon" viewBox="0 0 16 16">
+            <path d="M6 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4H6v-4ZM7 1v1h1V1H7Zm2 0v1h1V1H9ZM6 5a1 1 0 0 0-1 1v4.394c0 .494.146.976.42 1.387l1.038 1.558c.354.53.542 1.152.542 1.789 0 .481.39.872.872.872h1.256c.481 0 .872-.39.872-.872 0-.637.188-1.26.541-1.789l1.04-1.558A2.5 2.5 0 0 0 12 10.394V6a1 1 0 0 0-1-1H6Zm0 1h5v4.394a1.5 1.5 0 0 1-.252.832L9.71 12.784A4.224 4.224 0 0 0 9.002 15H7.998a4.224 4.224 0 0 0-.707-2.216l-1.04-1.558A1.5 1.5 0 0 1 6 10.394V6Z"/>
+          </svg>
+
+         
+        <span>Electrics</span>
+    </a>
+    <div class="collapse" id="electrics">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="{% url 'fasteners:screws' %}" class="nav-link">Plastic Strap</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/sass.html" class="nav-link">Cables</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/javascript.html" class="nav-link">Heat Shrink Tubing</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/handlebars.html" class="nav-link">Sleve</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Blade Fuse</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Cable Terminals</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/site-config.html" class="nav-link">Contact Housing</a>
+            </li>
+        </ul>
+    </div>
+</li>
+
+<!--/consumables-->
+
+
 {% endblock %}
 
 {% block body%}
@@ -689,6 +784,37 @@
                 </div> <!-- / .row -->
             </div>
         </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Дополнителна опрема</h4>
+                        <ul>
+                        {% for complement in vehicle.complementaryequipment_set.all %}                            
+                            <li>Петто тркало: <span class="text-info">{{ complement.fifth_wheel }}</span></li>
+                            <li>Петто тркало, позиција: <span class="text-info">{{ complement.fifth_wheel_position }} mm</span></li>
+                            <li>Петто тркало, категорија: <span class="text-info">{{ complement.fifth_wheel_category }}</span></li>
+                            <li>Петто тркало, плоча за монтажа: <span class="text-info">{{complement.fifth_wheel_mounting_plate }}</span></li>
+                            <li>Петто тркало, патека за одење: <span class="text-info">{{complement.catwalk }}</span></li>
+                            <li>Носач за опрема монтирана напред: <span class="text-info">{{complement.bracket_front_mounted_equipment }}</span></li>
+                            <li>ACL, автоматско подмачкување на шасијата: <span class="text-info">{{complement.acl_aut_chassis_lubrication }}</span></li>
+                            <li>Димезија JA/BEP L020: <span class="text-info">{{complement.dimension_ja_bep_lo2o }} mm</span></li>
+                            <li>Конектор за приколицата: <span class="text-info">{{complement.trailer_electric_connector }}</span></li>
+                            <li>Тип на конекторот за приколицата: <span class="text-info">{{complement.trailer_connector_type }}</span></li>
+                            <li>Бочни маски: <span class="text-info">{{complement.side_skirts }}</span></li>
+                            <li>Опрема за спасување, освен противпожарен апарат: <span class="text-info">{{complement.resque_equip_except_fire_ex }}</span></li>
+                            <li>Црево за пумпање гуми: <span class="text-info">{{complement.hose_tyre_inflation }}</span></li>
+                            <li>Носач за резервно тркало: <span class="text-info">{{complement.spare_wheel_carrier }}</span></li>
+                            <li>Противпожарен апарат: <span class="text-info">{{complement.fire_extinguisher }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        
 
     </div>
 </div> <!-- / .row -->
