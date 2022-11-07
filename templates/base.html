@@ -22,6 +22,10 @@
 
         <script src="{% static 'maint/js/theme.switcher.js' %}"></script>
 
+        <!-- Page specific css -->
+        {% block css %}
+        {% endblock %}
+
         <!-- Favicon -->
         <link rel="icon" href="{% static 'maint/images/icons/favicon.ico' %}" sizes="any" />
 
@@ -37,7 +41,7 @@
                 
                 <div class="d-flex align-items-center mb-lg-7">
                     <!-- Brand -->
-                    <a class="navbar-brand mb-0" href="{% url 'maint:index' %}">
+                    <a class="navbar-brand mb-0" href="/">
                         <img src="https://d33wubrfki0l68.cloudfront.net/ba6b91b7d508187d153e48318c22d0773a9cedfc/36afa/assets/images/logo.svg" class="navbar-brand-img logo-light logo-large" alt="..." width="125" height="25">
                         <img src="https://d33wubrfki0l68.cloudfront.net/55307694d1a6b107d2d87c838a1aaede85cd3d84/66f18/assets/images/logo-dark.svg" class="navbar-brand-img logo-dark logo-large" alt="..." width="125" height="25">
                     </a>
@@ -100,29 +104,15 @@
                             </li>
                         </ul>
                     </div>
-            
-                    <!-- Divider -->
-                    <div class="vr bg-gray-700 mx-1 mx-md-2 mx-lg-3"></div>
+
+                    {% block header %}
+                    {% endblock %}             
                     
-                    <!-- Link -->
-                    <a href="mailto:support@dashly-theme.com" class="btn btn-link mx-1 mx-lg-2 fw-semibold d-none d-md-block">
-                        Get support
-                    </a>
-
-                    <!-- Link -->
-                    <a href="https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/" target="_blank" class="btn btn-primary mx-1 mx-lg-2 px-4 px-lg-5">
-                        Purchase Now
-                    </a>
-
-                    <!-- Link -->
-                    <a href="../index.html" class="btn btn-dark mx-1 mx-lg-2 px-4 px-lg-5">
-                        Preview Demo
-                    </a>
                 </div>
             </header>
 
             <div class="container-fluid">
-                {% block body%}
+                {% block body %}
                 {% endblock %} 
             </div> <!-- / .container-fluid -->
 
@@ -131,7 +121,7 @@
                 <div class="container-fluid mt-4 mb-6 text-muted">
                     <div class="row justify-content-between">
                         <div class="col">
-                            © Dashly. 2022 Webinning.
+                            © Scandal. 2022 Webinning.
                         </div>
 
                         <div class="col-auto">
@@ -149,5 +139,9 @@
         
         <!-- Theme JS -->
         <script src="{% static 'maint/js/theme.bundle.js' %}"></script>
+
+        <!-- Page specific js -->
+        {% block js %}
+        {% endblock %}
     </body>
 </html>

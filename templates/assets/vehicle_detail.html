@@ -1,0 +1,283 @@
+a{% extends 'base.html' %}
+{% load static %}
+
+<!-- Page specific css -->
+{% block css %}
+{% endblock %}
+
+{% block navar %}
+
+<li class="nav-item">
+    <span class="h6 text-secondary ps-4 ps-lg-6 mb-3 d-block text-uppercase">Getting started</span>
+</li>
+
+<!--Maintenance-->
+<li class="nav-item dropdown">
+    <a class="nav-link" href="#maintenance" data-bs-toggle="collapse" role="button" aria-expanded="false"
+        aria-controls="customization">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-tools nav-link-icon" viewBox="0 0 16 16">
+            <path d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"/>
+          </svg>
+        <span>Maintenance</span>
+    </a>
+    <div class="collapse" id="maintenance">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="/" class="nav-link active">Work orders</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/sass.html" class="nav-link">Scheduled Maintenance</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/javascript.html" class="nav-link">Task Groups</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/handlebars.html" class="nav-link">Projects</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!--/Maintenance-->
+<!--Assets-->
+<li class="nav-item dropdown">
+    <a class="nav-link" href="#assets" data-bs-toggle="collapse" role="button" aria-expanded="false"
+        aria-controls="customization">
+        <svg viewBox="0 0 24 24" class="nav-link-icon" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+            <path d="M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+        </svg>
+        <span>Assets</span>
+    </a>
+    <div class="collapse show" id="assets">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="{% url 'assets:vehicle_list' %}" class="nav-link active">Fleet</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/sass.html" class="nav-link">Equipment</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/javascript.html" class="nav-link">Tools</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/handlebars.html" class="nav-link">Consumbles</a>
+            </li>
+        </ul>
+    </div>
+</li>
+<!--/Assets-->
+{% endblock %} 
+
+{% block header %}
+<!-- Divider -->
+<div class="vr bg-gray-700 mx-1 mx-md-2 mx-lg-3"></div>
+                    
+<!-- Link -->
+<a href="mailto:support@dashly-theme.com" class="btn btn-link mx-1 mx-lg-2 fw-semibold d-none d-md-block">
+    Help
+</a>
+
+<!-- Link -->
+<a href="https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/" target="_blank" class="btn btn-primary mx-1 mx-lg-2 px-4 px-lg-5">
+    Purchase Now
+</a>
+
+<!-- Link -->
+<a href="../index.html" class="btn btn-dark mx-1 mx-lg-2 px-4 px-lg-5">
+    User Manual
+</a>
+{% endblock %} 
+
+
+{% block body %}
+<h1 class="h4">
+    {% if vehicle.image %}
+        <img src="{{vehicle.image.url}}" style="width:96">
+    {% endif%} 
+    <span>
+        {% for lp in vehicle.licenceplate_set.all %}
+            {% if lp.is_valid %} 
+                <p>{{ lp.code }}</p>
+            {% else %}
+                <p>No valid Licence Plate.</p>
+            {% endif %} 
+        {% endfor %}
+    </span>
+    
+</h1>
+
+<div class="row">
+    <div class="col">
+        <!-- Card -->
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Општи карактеристики</h4>
+                        <ul class="text-secondary">
+                        {% for vehicle in vehicle.general_set.all %}                            
+                            <li>Ниво на изградба: <span class="text-info">{{ vehicle.assembly_level }}</span></li>
+                            <li>Производствена класа: <span class="text-info">{{ vehicle.production_class }}</span></li>
+                            <li>Развојно ниво: <span class="text-info">{{ vehicle.development_level }}</span></li>
+                            <li>Конфигурација на тркала: <span class="text-info">{{ vehicle.wheel_configuration }}</span></li>
+                            <li>Погон на предната осовина: <span class="text-info">{{ vehicle.front_wheel_drive }}</span></li>
+                            <li>Растојание помеѓу осовините: <span class="text-info">{{ vehicle.axle_distance }}</span></li>
+                            <li>Широчина на шасијата: <span class="text-info">{{ vehicle.chassis_width }}</span></li>
+                            <li>Прилагодување на шасијата: <span class="text-info">{{ vehicle.chassis_adaptation }}</span></li>
+                            <li>Модел на камионот: <span class="text-info">{{ vehicle.truck_model }}</span></li>
+                            <li>Тип на транспорт: <span class="text-info">{{ vehicle.transport_type }}</span></li>
+                            <li>Услови на работа: <span class="text-info">{{ vehicle.duty_class }}</span></li>
+                            <li>Висина на шасијата: <span class="text-info">{{ vehicle.chassis_height }}</span></li>
+                            <li>Јазик на плочките со податоци: <span class="text-info">{{ vehicle.plate_language }}</span></li>
+                            <li>Тежина на предната осовина: <span class="text-info">{{ vehicle.axle_weight_front_technical }}</span></li>
+                            <li>Тежина на задната осовина: <span class="text-info">{{ vehicle.axle_load_rear_technical }}</span></li>
+                            <li>Вкупна тежина: <span class="text-info">{{ vehicle.total_weight }}</span></li>
+                            <li>Подготовка за електронска наплата на патарина: <span class="text-info">{{ vehicle.preparation_for_toll_collect }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col"> 
+                        <h4>Дизел мотор</h4>
+                        <ul class="text-secondary">
+                        {% for engine in vehicle.engineinfo_set.all %}
+                            <li>Работен волумен: <span class="text-info">{{ engine.stroke_volume }}</span></li>
+                            <li>Код за снага: <span class="text-info">{{ engine.power_code }}</span></li>
+                            <li>Тип на моторот, возило: <span class="text-info">{{ engine.type_vehicle }}</span></li>
+                            <li>Тип на моторот, симбол: <span class="text-info">{{ engine.type_symbol }}</span></li>
+                            <li>Сериски број: <span class="text-info">{{ engine.serial_no }}</span></li>
+                            <li>Генерација на цилиндерскиот блок: <span class="text-info">{{ engine.cylinder_block_generation }}</span></li>
+                            <li>Ограничување на бројот на бројот на вртежи при низок притисок на масло: <span class="text-info">{{ engine.speed_limit_with_low_oil_presure }}</span></li>
+                            <li>ЕГР систем: <span class="text-info">{{ engine.egr_system }}</span></li>
+                            <li>ЕГР ладење: <span class="text-info">{{ engine.egr_cooling }}</span></li>
+                            <li>Контрола на издувни гасови: <span class="text-info">{{ engine.emmission_level }}</span></li>
+                            <li>Електронски контролен систем: <span class="text-info">{{ engine.management_system }}</span></li>
+                            <li>Контрола на азотни оксиди - NOx: <span class="text-info">{{ engine.nox_control }}</span></li>
+                            <li>Ограничување на моментот поради зголемена количина на азотни оксиди во издувните гасови: <span class="text-info">{{ engine.torque_reduction_nox_control }}</span></li>
+                            <li>Одземач на снага: <span class="text-info">{{ engine.power_take_of_ED }}</span></li>
+                            <li>Електрична инсталација за одземачот за снага: <span class="text-info">{{ engine.power_take_of_ED_electical_preparation }}</span></li>
+                            <li>Контролен уред за одземачот за снага: <span class="text-info">{{ engine.power_take_of_ED_control }}</span></li>
+                            <li>Работна класа на турбополначот: <span class="text-info">{{ engine.turbocharger_duty_class }}</span></li>
+                            <li>Предфилтер за влезниот воздух: <span class="text-info">{{ engine.precleaner_air_intake }}</span></li>
+                            <li>Влезен воздух: <span class="text-info">{{ engine.air_intake }}</span></li>
+                            <li>Огноотпорен предфилтер за влезниот воздух: <span class="text-info">{{ engine.air_cleaner_engine_fire_resistant }}</span></li>
+                            <li>Безбедносен филтер за предфилтер за влезниот воздух: <span class="text-info">{{ engine.аir_cleaner_safety_filter }}</span></li>
+                            <li>Површина на хатијата на филтерот за влезен воздух: <span class="text-info">{{ engine.air_cleaner_engine_paper_area }}</span></li>
+                            <li>Клапна за влезен воздух: <span class="text-info">{{ engine.air_intake_throttle_engine }}</span></li>
+                            <li>Контрола на клапната за влезен воздух: <span class="text-info">{{ engine.air_intake_throttle_control }}</span></li>
+                            <li>Индикатор за запушен филтер за влезен воздух: <span class="text-info">{{ engine.air_filter_clogged_indicator }}</span></li>
+                            <li>Пригушување на бучава: <span class="text-info">{{ engine.noise_dampering }}</span></li>
+                            <li>Пригушување на бучава на моторот: <span class="text-info">{{ engine.noise_encapsulation_engine }}</span></li>
+                            <li>Вентилација на коленастото вратило: <span class="text-info">{{ engine.crankcase_ventilation_type }}</span></li>
+                            <li>Антифриз заштита на вентилацијата на коленастото вратило: <span class="text-info">{{ engine.crankcase_ventilation_antitreeze }}</span></li>
+                            <li>Сензор за ниво на масло: <span class="text-info">{{ engine.oil_level_sensor_engine }}</span></li>
+                            <li>Сензор за надгледување на ниво на масло: <span class="text-info">{{ engine.oil_level_sensor_monitoring }}</span></li>
+                            <li>Материјал за коритото за масло: <span class="text-info">{{ engine.oil_sump_material }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Предна осовина</h4>
+                        <ul>
+                        {% for front_axle in vehicle.frontaxle_set.all %}                            
+                            <li>Предна осовина, тип: <span class="text-info">{{ front_axle.type }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Задна осовина</h4>
+                        <ul>
+                        {% for rear_axle in vehicle.rearaxle_set.all %}                            
+                            <li>Заднаа осовина, тип: <span class="text-info">{{ rear_axle.type }}</span></li>
+                            <li>Филтер за масло: <span class="text-info">{{ rear_axle.oil_filter }}</span></li>
+                            <li>Запчаник, на првата: <span class="text-info">{{ rear_axle.gear_first }}</span></li>
+                            <li>Сериски број, фабричка: <span class="text-info">{{ rear_axle.serial_no }}</span></li>
+                            <li>Преносен однос: <span class="text-info">{{ rear_axle.gear_ratio }}</span></li>
+                            <li>Диференцијал: <span class="text-info">{{ rear_axle.diferential_block }}</span></li>
+                            <li>Редукција во носачот на тркалото: <span class="text-info">{{ rear_axle.hub_reduction }}</span></li>
+                            <li>Подготовка за подигната осовина: <span class="text-info">{{ rear_axle.tag_axle_preparation }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Контрола на моторот</h4>
+                        <ul>
+                        {% for engine in vehicle.enginecontrol_set.all %}                            
+                            <li>Ограничувач на брзината: <span class="text-info">{{ engine.speed_limiter }}</span></li>
+                            <li>Ограничување на брзината: <span class="text-info">{{ engine.speed_limitаtion }}</span></li>
+                            <li>Ограничувач на брзината, втор: <span class="text-info">{{ engine.speed_limit_second }}</span></li>
+                            <li>Ограничувач на брзината, трет: <span class="text-info">{{ engine.speed_limit_third }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        <div class="card border-0 p-md-6">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h4>Дополнителна опрема</h4>
+                        <ul>
+                        {% for complement in vehicle.complementaryequipment_set.all %}                            
+                            <li>Петто тркало: <span class="text-info">{{ complement.fifth_wheel }}</span></li>
+                            <li>Петто тркало, позиција: <span class="text-info">{{ complement.fifth_wheel_position }} mm</span></li>
+                            <li>Петто тркало, категорија: <span class="text-info">{{ complement.fifth_wheel_category }}</span></li>
+                            <li>Петто тркало, плоча за монтажа: <span class="text-info">{{complement.fifth_wheel_mounting_plate }}</span></li>
+                            <li>Петто тркало, патека за одење: <span class="text-info">{{complement.catwalk }}</span></li>
+                            <li>Носач за опрема монтирана напред: <span class="text-info">{{complement.bracket_front_mounted_equipment }}</span></li>
+                            <li>ACL, автоматско подмачкување на шасијата: <span class="text-info">{{complement.acl_aut_chassis_lubrication }}</span></li>
+                            <li>Димезија JA/BEP L020: <span class="text-info">{{complement.dimension_ja_bep_lo2o }} mm</span></li>
+                            <li>Конектор за приколицата: <span class="text-info">{{complement.trailer_electric_connector }}</span></li>
+                            <li>Тип на конекторот за приколицата: <span class="text-info">{{complement.trailer_connector_type }}</span></li>
+                            <li>Бочни маски: <span class="text-info">{{complement.side_skirts }}</span></li>
+                            <li>Опрема за спасување, освен противпожарен апарат: <span class="text-info">{{complement.resque_equip_except_fire_ex }}</span></li>
+                            <li>Црево за пумпање гуми: <span class="text-info">{{complement.hose_tyre_inflation }}</span></li>
+                            <li>Носач за резервно тркало: <span class="text-info">{{complement.spare_wheel_carrier }}</span></li>
+                            <li>Противпожарен апарат: <span class="text-info">{{complement.fire_extinguisher }}</span></li>
+                        {% endfor %}
+                        </ul>                        
+                    </div>
+                </div> <!-- / .row -->
+            </div>
+        </div>
+
+        
+
+    </div>
+</div> <!-- / .row -->
+
+{% endblock %} 
+
+{% block js %}
+{% endblock %}

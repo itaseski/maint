@@ -1,0 +1,129 @@
+a{% extends 'base.html' %}
+{% load static %}
+
+{% block navar %}
+
+<li class="nav-item">
+    <span class="h6 text-secondary ps-4 ps-lg-6 mb-3 d-block text-uppercase">Getting started</span>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link" href="#customization" data-bs-toggle="collapse" role="button" aria-expanded="false"
+        aria-controls="customization">
+        <svg viewBox="0 0 24 24" class="nav-link-icon" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.753,13.944v8.25h6v-6a1.5,1.5,0,0,1,1.5-1.5h1.5a1.5,1.5,0,0,1,1.5,1.5v6h6v-8.25" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+            <path d="M.753,12.444,10.942,2.255a1.5,1.5,0,0,1,2.122,0L23.253,12.444" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+        </svg>
+        <span>Assets</span>
+    </a>
+    <div class="collapse show" id="customization">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="{% url 'maint:index' %}" class="nav-link">Fleet</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/sass.html" class="nav-link">Equipment</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/javascript.html" class="nav-link">Tools</a>
+            </li>
+            <li class="nav-item">
+                <a href="../docs/handlebars.html" class="nav-link active">Consumbles</a>
+            </li>
+        </ul>
+    </div>
+</li>
+{% endblock %} 
+
+{% block header %}
+<!-- Divider -->
+<div class="vr bg-gray-700 mx-1 mx-md-2 mx-lg-3"></div>
+                    
+<!-- Link -->
+<a href="mailto:support@dashly-theme.com" class="btn btn-link mx-1 mx-lg-2 fw-semibold d-none d-md-block">
+    Help
+</a>
+
+<!-- Link -->
+<a href="https://themes.getbootstrap.com/product/dashly-admin-dashboard-template/" target="_blank" class="btn btn-primary mx-1 mx-lg-2 px-4 px-lg-5">
+    Purchase Now
+</a>
+
+<!-- Link -->
+<a href="../index.html" class="btn btn-dark mx-1 mx-lg-2 px-4 px-lg-5">
+    User Manual
+</a>
+{% endblock %} 
+
+
+{% block body %}
+<h1 class="h2">
+    Assets
+</h1>
+
+<div class="card border-0 flex-fill w-100">
+
+    <div class="card-header border-0 card-header-space-between">
+        <!-- Title -->
+        <h2 class="card-header-title h4 text-uppercase">
+            Vehicle Fleet
+        </h2>
+        
+        <!-- Dropdown -->
+        <div class="dropdown">
+            <a href="javascript: void(0);" class="dropdown-toggle no-arrow text-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="14" width="14"><g><circle cx="12" cy="3.25" r="3.25" style="fill: currentColor"/><circle cx="12" cy="12" r="3.25" style="fill: currentColor"/><circle cx="12" cy="20.75" r="3.25" style="fill: currentColor"/></g></svg>
+            </a>
+            <div class="dropdown-menu">
+                <a href="javascript: void(0);" class="dropdown-item">
+                    Export report
+                </a>
+                <a href="javascript: void(0);" class="dropdown-item">
+                    Share
+                </a>
+                <a href="javascript: void(0);" class="dropdown-item">
+                    Action
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        {% if vehicle_list %}
+        <div class="table-responsive">
+            <table id="fleetTable" class="table align-middle table-sm table-edge table-nowrap mb-0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>VIN</th>
+                        <th>Assembly date</th>
+                        <th class="text-end">Entry into service</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for vehicle in vehicle_list %} 
+                    <tr>
+                        <td>
+                            <a href="{% url 'assets:vehicle_detail' vehicle.id %}">{{ vehicle.vin }}</a>
+                        </td>
+                        <td class="text-muted">{{vehicle.assembly_date | date:"d.m.Y"}}</td>
+                        <td class="text-end">{{vehicle.entry_into_service | date:"d.m.Y"}}</td>
+                    </tr>
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <p>No vehicle in database.</p>
+        {% endif %}  
+    </div>
+
+    <div class="card-footer text-muted">
+        Total: {{ total }}
+    </div>
+
+
+</div>
+
+{% endblock %} 

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'maint.apps.MaintConfig',
+    'assets.apps.AssetsConfig',
     'fasteners.apps.FastenersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,11 +117,26 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# Configuring static files
+# 1. Make sure that django.contrib.staticfiles is included in your INSTALLED_APPS.
+# 2. In your settings file, define STATIC_URL, for example:
 STATIC_URL = 'static/'
-# itaseski
+# 3. In your templates, use the static template tag to build the URL for the given relative path using the configured STATICFILES_STORAGE.
+# {% load static %}
+# <img src="{% static 'my_app/example.jpg' %}" alt="My image">
+# 4. Store your static files in a folder called static in your app. For example my_app/static/my_app/example.jpg.
+# Serving the files - During development, if you use django.contrib.staticfiles, this will be done automatically by runserver when DEBUG is set to True
 STATICFILES_DIRS = [ BASE_DIR / 'static',]
-
+# Serving static files in production
+# The basic outline of putting static files into production consists of two steps: 
+# run the collectstatic command when static files change, then arrange for the collected static files directory (STATIC_ROOT) to be moved to the static file server and served. 
+# Depending on STATICFILES_STORAGE, files may need to be moved to a new location manually or the post_process method of the Storage class might take care of that.
+STATIC_ROOT = STATIC_ROOT = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# config/settings.py
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
