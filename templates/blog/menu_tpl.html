@@ -1,0 +1,7 @@
+<ul class="navbar-nav ms-auto {{ menu_class }}">
+    {% for item in categories %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ item.get_absolute_url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+</ul>

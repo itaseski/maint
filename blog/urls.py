@@ -5,5 +5,5 @@ from . import views
 app_name = 'blog'
 urlpatterns = [
     path('', views.index, name='home'),
-    #path('<int:vehicle_id>/', views.vehicle_detail, name='vehicle_detail'),
+    path('category/<str:slug>/', views.get_category, name='category'),
 ]

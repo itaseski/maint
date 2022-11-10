@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'fasteners.apps.FastenersConfig',
     'blog.apps.BlogConfig',
     'ckeditor',
+    "debug_toolbar",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'web_project.urls'
@@ -139,6 +141,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static',]
 # run the collectstatic command when static files change, then arrange for the collected static files directory (STATIC_ROOT) to be moved to the static file server and served. 
 # Depending on STATICFILES_STORAGE, files may need to be moved to a new location manually or the post_process method of the Storage class might take care of that.
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

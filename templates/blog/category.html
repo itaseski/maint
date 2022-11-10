@@ -8,18 +8,26 @@
         <header class="card-header">
             <div class="card-meta">
                 <a href="#"><time class="timeago" datetime="2021-09-26 20:00">26 october 2021</time></a> in <a
-                    href="page-category.html">Journey</a>
+                    href="page-category.html">
+                    {% if category %}
+                        {{ category.slug }}
+                    {% endif %}
+                    </a>
             </div>
             <a href="post-image.html">
-                <h4 class="card-title">How can we sing about love?</h4>
+                <h4 class="card-title">Пред првото возење на возилото</h4>
             </a>
         </header>
         <a href="post-image.html">
             <img class="card-img" src="{% static 'blog/images/22.jpg' %}" alt="" />
         </a>
         <div class="card-body">
-            <p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper
-                libero, sit amet adipiscing sem neque sed ipsum. </p>
+            <p class="card-text">
+                Пред првото возење на возилото, упатството за возење треба да се прочита темелно. Опомените и
+                инструкциите дадени во ова упатство треба секогаш да се почитуваат. Упатството ги дава сите потребни
+                информации кои се потребни за да се спречи предизвикување на оштетувања на возилото, лични повреди и
+                повреди на други лица.
+            </p>
         </div>
     </article><!-- /.card -->
 
@@ -127,15 +135,14 @@
 {% block about %}
 <aside class="sidebar">
     <div class="card mb-4">
-        <div class="card-body">
-            <h4 class="card-title">About</h4>
-            <p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam <a
-                    href="#">semper libero</a>, sit amet adipiscing sem neque sed ipsum. </p>
-        </div>
+      <div class="card-body">
+        <h4 class="card-title">About</h4>
+        <p class="card-text">Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam <a
+            href="#">semper libero</a>, sit amet adipiscing sem neque sed ipsum. </p>
+      </div>
     </div><!-- /.card -->
-</aside>
+  </aside>
 {% endblock %}
-
 
 {% block tags %}
 <aside class="sidebar sidebar-sticky">

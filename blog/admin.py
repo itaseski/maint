@@ -32,7 +32,7 @@ class PostAdmin(admin.ModelAdmin):
 
     def get_image(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" width="80">')
+            return mark_safe(f'<img src="{obj.image.url}" width="64">')
         return '-'
     get_image.short_description="Слика"
 
