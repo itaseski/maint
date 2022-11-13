@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Link - Blog</title>
+  <title>{% block title %}Link Logistik{% endblock %}</title>
 
   <link href="{% static 'blog/css/blog.css' %}" rel="stylesheet">
 
@@ -15,7 +15,7 @@
 
   {% include "blog/includes/_header.html" %}
 
-  
+
   <main class="main pt-4">
 
     <div class="container-xl">
@@ -27,26 +27,74 @@
           <div class="row">
             {% block body %}
             {% endblock %}
+          </div>
 
+          <div class="row">
+            <nav aria-label="Page navigation example">
+
+              {% if page_obj.has_other_pages %}
+
+              <ul class="pagination justify-content-center">
+
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                {% endif %}
+
+                {% for p in page_obj.paginator.page_range %}
+
+                  {% if page_obj.number == p %}
+                  <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                  </li>
+                  {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %} <li class="page-item">
+                    <li class="page-item">
+                      <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                    </li>
+                  {% endif %}
+
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+
+                {% endif %}
+
+
+
+              </ul>
+
+              {% endif %}
+
+
+            </nav>
           </div>
 
         </div>
 
         <div class="col-md-3 ms-auto">
-          
+
           {% block about %}
           {% endblock %}
 
           {% block tags %}
 
-            {% block popular_posts %}
-            {% endblock %}
+          {% block popular_posts %}
+          {% endblock %}
 
           {% endblock %}
 
-          
 
-          
+
+
 
         </div>
       </div>
@@ -54,13 +102,13 @@
 
   </main>
 
-  
+
   {% include "blog/includes/_site-newsletter.html" %}
-  
+
   {% include "blog/includes/_site-instagram.html" %}
 
   {% include "blog/includes/_footer.html" %}
-  
+
   <script src="{% static 'blog/js/blog.js' %}"></script>
   <script src="{% static 'blog/js/active.js' %}"></script>
 </body>
